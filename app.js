@@ -19,6 +19,7 @@ getConnection = async () =>  {
 }
 getConnection()
 
+app.use(express.static('build'))
 app.use(cors())
 app.use(express.json())
 app.use('/api/messages', messagesRouter)

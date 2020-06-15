@@ -46,8 +46,11 @@ const App = () => {
         messageService
             .create(messageObject)
             .then(response => {
-                setMessages(messages.concat(response))
-                setNewMessage('')
+                messageService.getAll()
+                    .then(response => {
+                    console.log('Message', response)
+                    setMessages(response)
+                })
             })
     }
 
