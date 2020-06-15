@@ -1,0 +1,29 @@
+POST http://localhost:3001/api/messages
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1pa2FMZXBwaWFobyIsImlkIjoiNWVlNTQ2YzgxYmY5ZGYxYjBjMTBjZDExIiwiaWF0IjoxNTkyMTEzNDE5fQ.lAmiLShxtCB8YxdFTBlCn3tTy8HoXYSEt3wNYa71AGY
+
+{
+    "content": "Hello! How is everybody doing?"
+}
+###
+GET http://localhost:3001/api/messages
+
+###
+POST http://localhost:3001/api/users
+content-type: application/json
+
+{
+    "username": "MikaLeppiaho",
+    "name": "Mika Leppiaho",
+    "password": "Salasana1"
+}
+
+###
+POST http://localhost:3001/api/login
+content-type: application/json
+
+{
+    "username": "MikaLeppiaho",
+    "password": "Salasana1"
+}
+
