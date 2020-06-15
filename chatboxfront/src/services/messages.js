@@ -8,14 +8,15 @@ const setToken = newToken => {
     token = `bearer ${newToken}`
 }
 
-const getAll = () => {
+const getAllMessages = () => {
     const request = axios.get(baseUrl)
+    
     return request.then(response => {
         return response.data
     })
 }
 
-const create = async newObject => {
+const createMessage = async newObject => {
     const config = {
         headers: { Authorization: token },
     }
@@ -25,7 +26,7 @@ const create = async newObject => {
 }
 
 export default {
-    getAll,
-    create,
+    getAllMessages,
+    createMessage,
     setToken
 }

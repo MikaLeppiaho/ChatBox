@@ -18,13 +18,14 @@ const App = () => {
     //Efecti hakee palvelimelta listan viesteistä jotka saadaan tulostettua tilanmuutoksen messages -muuttujalla.
     useEffect(() => {
        messageService
-        .getAll()
+        .getAllMessages()
         .then(response => {
             console.log('Message', response)
             setMessages(response)
         })
    }, [])
 
+   //Tallennetaan käyttäjän autentikointitoken
    useEffect(() => {
        const loggedChatBoxUserJSON = window.localStorage.getItem('loggedChatBoxUser')
 
@@ -34,7 +35,9 @@ const App = () => {
            messageService.setToken(user.token)
        }
    },[] )
-    
+    //Luo uuden viestin mongo tietokantaan
+    //Hakee päivämäärän mukaan järjestellyn listan
+    //Tyhjää viestin syötekentän
     const addMessage = (event) => {
         event.preventDefault()
 
@@ -44,9 +47,9 @@ const App = () => {
         }
 
         messageService
-            .create(messageObject)
+            .createMessage(messageObject)
             .then(response => {
-                messageService.getAll()
+                messageService.getAllMessages()
                     .then(response => {
                     console.log('Message', response)
                     setMessages(response)
@@ -62,14 +65,13 @@ const App = () => {
 
     const handleLogin = async (event) => {
         event.preventDefault()
-        console.log('logging in with', username, password)
-        try{
+
+        try {
             const user = await loginService.login({username, password})
             //Tallentaa käyttäjän tunnistetiedot selaimen muistiin
             window.localStorage.setItem(
                 'loggedChatBoxUser',
-                JSON.stringify(user)
-                )
+                JSON.stringify(user))
             messageService.setToken(user.token)
             setUser(user)
             setUsername('')
@@ -85,8 +87,8 @@ const App = () => {
     const loginForm = () => {
         return(
             <form onSubmit={handleLogin}>
-             <p>Login to participate in the chat!</p>
-             <p><strong>Tip!</strong>Username: demo & password: salasana</p>
+                <p>Login to participate in the chat!</p>
+                <p><strong>Tip! </strong>Username: demo & password: salasana</p>
                 <div>
                     username: 
                         <input
@@ -106,10 +108,8 @@ const App = () => {
                 <div>
                     <button type="submit">login</button>
                 </div>
-
             </form>
         )
-        
     }
     //Viestin lähetykseen tarvittavat näkymät aktivoituvat, kun kirjaudutaan
     const submitForm = () => {
