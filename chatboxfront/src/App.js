@@ -49,7 +49,7 @@ const App = () => {
                 messageService.getAll()
                     .then(response => {
                     console.log('Message', response)
-                    setMessages(response)
+                    setMessages('')
                 })
             })
     }
