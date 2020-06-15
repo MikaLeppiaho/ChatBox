@@ -85,6 +85,7 @@ const App = () => {
         return(
             <form onSubmit={handleLogin}>
              <p>Login to participate in the chat!</p>
+             <p><strong>Tip!</strong>Username: demo & password: salasana</p>
                 <div>
                     username: 
                         <input
