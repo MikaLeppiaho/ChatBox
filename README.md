@@ -13,10 +13,4 @@ $npm install
 käynnistä sovellus
 $npm run start
 
-voit myös tarkastaa sovelluksen osoitteesta:
-https://chatboxleppiaho.herokuapp.com/
-
-Kirjautumistunnukset
-käyttäjänimi: demo
-salasana: salasana
 
