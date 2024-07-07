@@ -10,7 +10,7 @@ Kloonaa repositori tietokoneelle
 Asenna tarvittavat kirjastot komennolla:
 $npm install 
 
-käynnistä sovellus
+käynnistä sovellus komennolla
 $npm run start
 
 
