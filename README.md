@@ -1,7 +1,7 @@
 ChatBox
 
 Yksinkertainen sovellus REST sovellus viestittelyyn
-Frontend toteutettu Reactilla ja Javascriptillä
+Frontend toteutettu Reactilla ilman typescriptiä
 
 Backend Node.js ja tietokantana MongoDB
 
